@@ -1,0 +1,133 @@
+
+
+
+
+
+
+
+
+
+
+
+
+{% extends "main/base2.html" %}
+{% load static %}
+
+
+
+
+{% block content %}
+
+<main id="main">
+
+
+        <!-- ======= Contact Section ======= -->
+        <section class="breadcrumbs">
+             <div class="container">
+                {% if messages %}
+                    {% for message in messages %}
+                         <div class="alert alert-{{message.tags}}" role="alert">
+                                <strong></strong>{{ message}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         </div>
+                    {% endfor %}
+                 {% endif %}
+             </div>
+            <div class="container">
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Contact</h2>
+                    <ol>
+                        <li><a href="{{'/'}}">Home</a></li>
+                        <li>Contact</li>
+                    </ol>
+                </div>
+
+            </div>
+        </section>
+        <!-- End Contact Section -->
+
+        <!-- ======= Contact Section ======= -->
+        <section class="contact" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="info-box">
+                                    <i class="bx bx-map"></i>
+                                    <h3>Our Address</h3>
+                                    <p>A108 Adam Street, New York, NY 535022</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bx bx-envelope"></i>
+                                    <h3>Email Us</h3>
+                                    <p>info@example.com<br>contact@example.com</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info-box">
+                                    <i class="bx bx-phone-call"></i>
+                                    <h3>Call Us</h3>
+                                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+                        <form  method="POST"  class="php-email-form">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-md-6 form-group">
+                                   {{form.name}}
+                                    <div class="validate"></div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    {{form.email}}
+                                    <div class="validate"></div>
+                                </div>
+                            </div>
+                              <div class="form-group">
+                                {{form.phone}}
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-group">
+                                {{form.subject}}
+                                <div class="validate"></div>
+                            </div>
+                            <div class="form-group">
+                                {{form.message}}
+                                <div class="validate"></div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="loading">Loading</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">Your message has been sent. Thank you!</div>
+                            </div>
+                            <div class="text-center"><button type="submit">Send Message</button></div>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+    <section class="map mt-2">
+            <div class="container-fluid p-0">
+                <iframe src="https://maps.google.com/maps?q=Gestner%20Service%20Centre%2C%2045D%2C%20Sector%2050D%2C%20Chandigarh&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+        </section>
+        <!-- End Map Section -->
+
+    </main>
+
+
+
+{% endblock %}
